@@ -10,18 +10,27 @@ namespace MaxNumber
     {
         static void Main(string[] args)
         {
-            Console.Write("введите первое число: ");
-            int num1 = Convert.ToInt32(Console.ReadLine());
+            Console.WriteLine("введите количесто элементов массива: ");
+            int length = Convert.ToInt32(Console.ReadLine());
 
-            Console.Write("введите второе число: ");
-            int num2 = Convert.ToInt32(Console.ReadLine());
+            int[] array = new int[length];
+            for (int i = 0; i < length; i++)
+            {
+                Console.WriteLine($"Ввод элементов массива: {i + 1}");
+                array[i] = Convert.ToInt32(Console.ReadLine());
+            }
+            
+            int maxElement = array[0];
 
-            Console.Write("введите третье число: ");
-            int num3 = Convert.ToInt32(Console.ReadLine());
+            for (int i = 0; i < length; i++)
+            {
+                if (array[i] > maxElement)
+                {
+                    maxElement = array[i];
+                }
+            }
 
-            int maxNumber = Math.Max(num1, Math.Max(num2, num3)); //сравнивает сначало num2 и num3 а потом nam1 (это без использовани  if)
-
-            Console.WriteLine($"наибольшее число: {maxNumber}");
+            Console.WriteLine($"наибольшее число: {maxElement}");
         }
     }
 }
